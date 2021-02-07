@@ -1,3 +1,3 @@
 # Test-Cypress
 
-npm run test  -> running tests via Cypress
+npm run test  ? running tests via Cypress

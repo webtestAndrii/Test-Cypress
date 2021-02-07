@@ -1,0 +1,255 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 4,
+    "pending": 0,
+    "failures": 4,
+    "start": "2021-02-06T13:31:48.788Z",
+    "end": "2021-02-06T13:32:59.480Z",
+    "duration": 70692,
+    "testsRegistered": 8,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b13069d6-d094-4e98-88d6-bf2316649f87",
+      "title": "",
+      "fullFile": "cypress\\integration\\test.spec.js",
+      "file": "cypress\\integration\\test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+          "title": "login user",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login the app with valid credentials",
+              "fullTitle": "login user should login the app with valid credentials",
+              "timedOut": null,
+              "duration": 18981,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\test.spec.js\\\\login user -- should login the app with valid credentials (failed).png\"\n}",
+              "code": "loginPage.fillUsername(_config.env.user.username);\nloginPage.fillPassword(_config.env.user.password);\nloginPage.submit();\ncy.location('pathname', {\n  timeout: 10000\n}).should('eq', '/'); // todo: set the right location\ncy.title().should('eq', 'Home');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '/qa-portal/registerlogin/registerlogin.php' to equal '/'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '/qa-portal/registerlogin/registerlogin.php' to equal '/'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress\\integration\\test.spec.js:187:8)",
+                "diff": "- '/qa-portal/registerlogin/registerlogin.php'\n+ '/'\n"
+              },
+              "uuid": "2f8f428c-8cf2-4a3f-82b6-25048b894229",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to the next field after pressing tab",
+              "fullTitle": "login user should navigate to the next field after pressing tab",
+              "timedOut": null,
+              "duration": 1531,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.fillUsername(_config.env.user.username);\nloginPage.usernameElement.tab();\nloginPage.passwordElement.should('have.focus');",
+              "err": {},
+              "uuid": "e48181b9-8d8e-4a9a-b395-205ee50ab81c",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login the app with valid credentials and after pressing enter",
+              "fullTitle": "login user should login the app with valid credentials and after pressing enter",
+              "timedOut": null,
+              "duration": 12362,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\test.spec.js\\\\login user -- should login the app with valid credentials and after pressing enter (failed).png\"\n}",
+              "code": "loginPage.fillUsername(_config.env.user.username);\nloginPage.fillPassword(_config.env.user.password);\nloginPage.passwordElement.focus().type('{enter}');\ncy.location('pathname', {\n  timeout: 10000\n}).should('eq', '/'); // todo: set the right location\ncy.title().should('eq', 'Home');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '/qa-portal/registerlogin/registerlogin.php' to equal '/'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '/qa-portal/registerlogin/registerlogin.php' to equal '/'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress\\integration\\test.spec.js:202:8)",
+                "diff": "- '/qa-portal/registerlogin/registerlogin.php'\n+ '/'\n"
+              },
+              "uuid": "60fa8595-d485-439e-975e-671a1b1ec289",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error invalid username",
+              "fullTitle": "login user should show error invalid username",
+              "timedOut": null,
+              "duration": 4037,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.fillUsername(_config.env.invalid_user.username);\nloginPage.fillPassword(_config.env.user.password);\nloginPage.submit();\nloginPage.errorMessageElement.should('have.text', 'No account found with that username.');\nloginPage.errorMessageElement.should('have.css', 'color', 'rgb(169, 68, 66)');\nloginPage.errorFormElement.should('have.css', 'border-color', 'rgb(169, 68, 66)');",
+              "err": {},
+              "uuid": "86b04b99-cab4-4691-b801-6e0b801a2ec9",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error invalid password",
+              "fullTitle": "login user should show error invalid password",
+              "timedOut": null,
+              "duration": 6747,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\test.spec.js\\\\login user -- should show error invalid password (failed).png\"\n}",
+              "code": "loginPage.fillUsername(_config.env.user.username);\nloginPage.fillPassword(_config.env.invalid_user.password);\nloginPage.submit();\nloginPage.errorMessageElement.should('have.text', 'Wrong password');\nloginPage.errorMessageElement.should('have.css', 'color', 'rgb(169, 68, 66)');\nloginPage.errorFormElement.should('have.css', 'border-color', 'rgb(169, 68, 66)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' to have text 'Wrong password', but the text was 'No account found with that username.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' to have text 'Wrong password', but the text was 'No account found with that username.'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress\\integration\\test.spec.js:218:35)",
+                "diff": "- 'No account found with that username.'\n+ 'Wrong password'\n"
+              },
+              "uuid": "2f005183-2cc6-4640-bd13-8913f2390e8c",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error email is required field",
+              "fullTitle": "login user should show error email is required field",
+              "timedOut": null,
+              "duration": 1599,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.fillPassword(_config.env.user.password);\nloginPage.submit();\nloginPage.errorMessageElement.should('have.text', \"Please enter username.\");\nloginPage.errorMessageElement.should('have.css', 'color', 'rgb(169, 68, 66)');\nloginPage.errorFormElement.should('have.css', 'border-color', 'rgb(169, 68, 66)');",
+              "err": {},
+              "uuid": "01a8680f-1a9d-4050-b3b0-4ecade700b86",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error password is required field",
+              "fullTitle": "login user should show error password is required field",
+              "timedOut": null,
+              "duration": 1601,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.fillUsername(_config.env.user.username);\nloginPage.submit();\nloginPage.errorMessageElement.should('have.text', \"Please enter your password.\");\nloginPage.errorMessageElement.should('have.css', 'color', 'rgb(169, 68, 66)');\nloginPage.errorFormElement.should('have.css', 'border-color', 'rgb(169, 68, 66)');",
+              "err": {},
+              "uuid": "bf04e55e-2de8-4119-bec3-9fafd93a6dd0",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error email field is too long",
+              "fullTitle": "login user should show error email field is too long",
+              "timedOut": null,
+              "duration": 13877,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\test.spec.js\\\\login user -- should show error email field is too long (failed).png\"\n}",
+              "code": "loginPage.fillUsername('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,.');\nloginPage.fillPassword(_config.env.user.password);\nloginPage.submit();\nloginPage.errorMessageElement.should('have.text', \"Maximum length of username field is 255 symbols \");\nloginPage.errorMessageElement.should('have.css', 'color', 'rgb(169, 68, 66)');\nloginPage.errorFormElement.should('have.css', 'border-color', 'rgb(169, 68, 66)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' to have text 'Maximum length of username field is 255 symbols ', but the text was 'No account found with that username.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' to have text 'Maximum length of username field is 255 symbols ', but the text was 'No account found with that username.'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress\\integration\\test.spec.js:240:35)",
+                "diff": "- 'No account found with that username.'\n+ 'Maximum length of username field is 255 symbols '\n"
+              },
+              "uuid": "f60bb8c2-53d9-405f-8e7f-baac233728db",
+              "parentUUID": "ffe2aba9-bef6-47cc-942c-a5b626dfb1a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e48181b9-8d8e-4a9a-b395-205ee50ab81c",
+            "86b04b99-cab4-4691-b801-6e0b801a2ec9",
+            "01a8680f-1a9d-4050-b3b0-4ecade700b86",
+            "bf04e55e-2de8-4119-bec3-9fafd93a6dd0"
+          ],
+          "failures": [
+            "2f8f428c-8cf2-4a3f-82b6-25048b894229",
+            "60fa8595-d485-439e-975e-671a1b1ec289",
+            "2f005183-2cc6-4640-bd13-8913f2390e8c",
+            "f60bb8c2-53d9-405f-8e7f-baac233728db"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 60735,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
